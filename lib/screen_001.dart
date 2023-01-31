@@ -42,8 +42,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   bool _greyTextinput = true;
   int _txtlenth = 0;
   int _txtlenth2 = 0;
-  final int _maxtextlen = 15;
-  final int _maxtextlen2 = 4;
+  int _maxtextlen = 15;
+  int _maxtextlen2 = 4;
 
   // 위젯 생성될 때 처음으로 호출되는 메서드
   @override
@@ -68,6 +68,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     //소켓 라이브러리 사용 ip, port 입력
     Socket socket =
         await Socket.connect(_ip, _port!, timeout: Duration(seconds: 1));
+
     //연결 확인 메세지
     print('Connected to: '
         '${socket.remoteAddress.address}:${socket.remotePort}');
@@ -313,7 +314,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   width: MediaQuery.of(context).size.width,
                   height: 20,
                   child: Text(
-                    _ipconfig,
+                    '$_ipconfig',
                     style: TextStyle(color: Colors.white54),
                     maxLines: 1,
                     overflow: TextOverflow.fade,
